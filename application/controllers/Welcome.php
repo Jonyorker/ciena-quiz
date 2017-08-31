@@ -20,6 +20,14 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$data['main_content'] = 'welcome_view';
+        $this->load->view('template/body_view', $data);
+	}
+
+	public function quiz()
+	{
+		$this->input->post('user_name')
+		$data['main_content'] = 'welcome_view';
+        $this->load->view('template/body_view', $data);
 	}
 }
