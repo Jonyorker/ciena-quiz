@@ -8,4 +8,11 @@ class Quiz_model extends CI_Model {
                 return $quiz_id;
         }
 
+        function add_question($data)
+        {
+                $this->db->insert('question', $data);
+                return;
+        }
+
+
 }

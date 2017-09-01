@@ -33,6 +33,7 @@ class Admin_panel extends CI_Controller {
 	public function store_quiz()
 	{
 		$data['quiz_name'] = $this->input->post('quiz_name');
+		$data['anonymous'] = $this->input->post('anonymous');
 
 		$data['quiz_id'] = $this->quiz_model->create($data);
 
@@ -42,8 +43,27 @@ class Admin_panel extends CI_Controller {
 
 	public function add_question()
 	{
-		$this->input->post('user_name');
-		$data['main_content'] = 'admin/add_question_view';
+		$data['question_id'] = $this->input->post('question_id');
+		$data['quiz_id'] = $this->input->post('quiz_id');
+		$data['question_text'] = $this->input->post('question_text');
+		$data['answer_a'] = $this->input->post('answer_a');
+		$data['answer_b'] = $this->input->post('answer_b');
+		$data['answer_c'] = $this->input->post('answer_c');
+		$data['answer_d'] = $this->input->post('answer_d');
+		$data['right_choice'] = $this->input->post('right_choice');
+
+		$this->quiz_model->add_question($data);
+
+		$data['quiz_name'] = $this->input->post('quiz_name');
+
+		if($this->input->post('more')) {
+			$data['main_content'] = 'admin/add_question_view';
+		}
+		if($this->input->post('finish')) {
+			$data['main_content'] = 'admin/admin_home_view';
+		}
+
+		
         $this->load->view('template/body_view', $data);
 	}
 
