@@ -24,10 +24,12 @@ class Welcome extends CI_Controller {
         $this->load->view('template/body_view', $data);
 	}
 
-	public function quiz()
+	public function quiz_anon()
 	{
-		$this->input->post('user_name');
-		$data['main_content'] = 'welcome_view';
+		$data['user_name'] = $this->input->post('user_name');
+		$data['quizzes'] = $this->quiz_model->retrieve_quizzes_anon();
+
+		$data['main_content'] = 'quiz_list_anonymous_view';
         $this->load->view('template/body_view', $data);
 	}
 }
