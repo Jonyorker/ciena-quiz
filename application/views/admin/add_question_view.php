@@ -3,7 +3,7 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>Add Question</legend>
+<legend>Add Question for Quiz "<?php echo $quiz_name; ?>"</legend>
 
 <!-- Textarea -->
 <div class="form-group">

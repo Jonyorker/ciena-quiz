@@ -20,28 +20,51 @@ class Admin_panel extends CI_Controller {
 	 */
 	public function index()
 	{
-		$data['main_content'] = 'welcome_view';
+		$data['main_content'] = 'admin/admin_home_view';
         $this->load->view('template/body_view', $data);
 	}
 
 	public function create_quiz()
 	{
-		$this->input->post('user_name')
-		$data['main_content'] = 'welcome_view';
+		$data['main_content'] = 'admin/create_quiz_view';
+        $this->load->view('template/body_view', $data);
+	}
+
+	public function store_quiz()
+	{
+		$data['quiz_name'] = $this->input->post('quiz_name');
+
+		$data['quiz_id'] = $this->quiz_model->create($data);
+
+		$data['main_content'] = 'admin/add_question_view';
         $this->load->view('template/body_view', $data);
 	}
 
 	public function add_question()
 	{
-		$this->input->post('user_name')
-		$data['main_content'] = 'welcome_view';
+		$this->input->post('user_name');
+		$data['main_content'] = 'admin/add_question_view';
         $this->load->view('template/body_view', $data);
 	}
 
-	public function edit_question()
+	public function edit_quiz()
 	{
-		$this->input->post('user_name')
-		$data['main_content'] = 'welcome_view';
+		$this->input->post('user_name');
+		$data['main_content'] = 'admin/edit_question_view';
+        $this->load->view('template/body_view', $data);
+	}
+
+	public function user_quiz_score()
+	{
+		$this->input->post('user_name');
+		$data['main_content'] = 'admin/edit_question_view';
+        $this->load->view('template/body_view', $data);
+	}
+
+	public function delete_quiz()
+	{
+		$this->input->post('user_name');
+		$data['main_content'] = 'admin/edit_question_view';
         $this->load->view('template/body_view', $data);
 	}
 }
