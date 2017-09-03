@@ -74,8 +74,12 @@ class Quiz_model extends CI_Model {
 
         function save_answers($data)
         {
+                $index = 0;
                 foreach ($data['user_answer'] as $key) {
-                        $this->db->insert('answer', $data);
+                        $new_data = array('user_id' => $data['user_id'], 'quiz_id' => $data['quiz_id'], 'question_id' => $data['question_id'][$index], 'user_answer' => $key);
+                        $index++;
+                        $this->db->insert('answer', $new_data);
+                        
                 }       
         }
 

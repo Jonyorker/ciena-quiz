@@ -8,7 +8,8 @@
   		echo form_open('/Quiz/answers', 'class="form-horizontal", id="ciena-form"');
   		echo form_hidden('quiz_id', $quiz_id);
   		$index = 0;
-		foreach ($questions->result() as $row) { ?>
+		foreach ($questions->result() as $row) { 
+		echo form_hidden('question_id['.$index.']', $row->question_id);?>
 		<div class="row">
 		<div class="col-md-12">
 			<h3>
