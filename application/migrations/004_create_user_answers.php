@@ -21,6 +21,10 @@ class Migration_Create_User_Answers extends CI_Migration {
                                 'type' => 'INT',
                                 'null' => TRUE,
                         ),
+                        'user_id' => array(
+                                'type' => 'INT',
+                                'null' => TRUE,
+                        ),
                         'user_answer' => array(
                                 'type' => 'INT',
                                 'null' => TRUE,

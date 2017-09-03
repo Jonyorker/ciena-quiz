@@ -25,7 +25,7 @@
 	      <h2>Continue Without logging in</h2>
 	      <?php echo form_open('Quiz/anonymous', 'class="form-new", id="ciena-form"'); ?>
 	      <div class="form-group">
-			<?php echo form_hidden('user_name', 'anonymous'); ?>
+			<?php echo form_hidden('user_id', 'anonymous'); ?>
 			<div class="col-md-12">
 			<?php echo form_submit('submit', 'Next', array('class' => 'btn btn-default pull-right')); ?>
 	      </div>

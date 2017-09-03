@@ -21,8 +21,8 @@ class Quiz extends CI_Controller {
 
 	public function anonymous()
 	{
-		$user_name = $this->input->post('user_name');
-		$this->session->set_userdata('user_name', $user_name);
+		$user_id = $this->input->post('user_id');
+		$this->session->set_userdata('user_id', $user_id);
 
 		$data['quizzes'] = $this->quiz_model->retrieve_quizzes_anon();
 
@@ -39,4 +39,23 @@ class Quiz extends CI_Controller {
 		$data['main_content'] = 'take_quiz_view';
         $this->load->view('template/body_view', $data);
 	}
+
+	public function answers()
+	{
+		$data['user_id'] = $this->session->userdata('user_id');
+
+		foreach($_POST as $key => $val)  
+		    {  
+		        $data[$key] = $this->input->post($key);  
+		    }  
+
+		var_dump($data);
+		$this->quiz_model->save_answers($data);
+
+		$data['main_content'] = 'take_quiz_view';
+        $this->load->view('template/body_view', $data);
+	}
+
+
+
 }

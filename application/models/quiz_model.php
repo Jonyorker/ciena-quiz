@@ -72,5 +72,12 @@ class Quiz_model extends CI_Model {
 				return;
         }
 
+        function save_answers($data)
+        {
+                foreach ($data['user_answer'] as $key) {
+                        $this->db->insert('answer', $data);
+                }       
+        }
+
 
 }
