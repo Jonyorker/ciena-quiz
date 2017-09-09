@@ -15,6 +15,7 @@ class Migration_Create_User extends CI_Migration {
                         ),
                         'user_name' => array(
                                 'type' => 'TEXT',
+                                'null' => TRUE,
                         ),
                 ));
                 $this->dbforge->add_key('user_id', TRUE);

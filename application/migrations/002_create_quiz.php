@@ -16,6 +16,10 @@ class Migration_Create_Quiz extends CI_Migration {
                         'quiz_name' => array(
                                 'type' => 'TEXT',
                         ),
+                        'anonymous' => array(
+                                'type' => 'INT',
+                                'null' => TRUE,
+                        ),
                 ));
                 $this->dbforge->add_key('quiz_id', TRUE);
                 $this->dbforge->create_table('quiz');

@@ -14,8 +14,8 @@ class Migration_Create_Question extends CI_Migration {
                                 'auto_increment' => TRUE
                         ),
                         'quiz_id' => array(
-                                'type' => 'VARCHAR',
-                                'constraint' => '100',
+                                'type' => 'INT',
+                                'null' => TRUE,
                         ),
                         'question_text' => array(
                                 'type' => 'TEXT',

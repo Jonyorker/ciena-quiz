@@ -48,7 +48,7 @@ class Quiz_model extends CI_Model {
         {		
                 $query = $this->db->get_where('quiz', array('quiz_id' => $id));
                 $result = $query->row();
-				return $result->quiz_name;
+		return $result->quiz_name;
         }
 
         function delete_quiz($quiz_id)
@@ -76,11 +76,18 @@ class Quiz_model extends CI_Model {
         {
                 $index = 0;
                 foreach ($data['user_answer'] as $key) {
-                        $new_data = array('user_id' => $data['user_id'], 'quiz_id' => $data['quiz_id'], 'question_id' => $data['question_id'][$index], 'user_answer' => $key);
+                        $answer = array('user_id' => $data['user_id'], 'quiz_id' => $data['quiz_id'], 'question_id' => $data['question_id'][$index], 'user_answer' => $key);
                         $index++;
-                        $this->db->insert('answer', $new_data);
-                        
-                }       
+                        $this->db->insert('answer', $answer);    
+                } 
+        }
+
+        function user_answer($question_id)
+        {
+                $user_id = $this->session->userdata('user_id');
+                $query = $this->db->get_where('answer', array('question_id' => $question_id, 'user_id' => $user_id));
+                $result = $query->row();
+                return $result->user_answer;
         }
 
 

@@ -1,5 +1,5 @@
 <div class="container">
-<h2>Quiz name</h2>
+<h2><?php echo urldecode($quiz_name); ?></h2>
 <ul class="list-group">
 </ul>
 
@@ -25,25 +25,25 @@
 			<p>
 				<?php echo $row->answer_a; ?>
 			</p> 
-			<?php echo form_radio('user_answer['.$index.']', 'a', FALSE); ?>
+			<?php echo form_radio('user_answer['.$index.']', '1', FALSE); ?>
 		</div>
 		<div class="col-md-3 well">
 			<p>
 				<?php echo $row->answer_b; ?>
 			</p> 
-			<?php echo form_radio('user_answer['.$index.']', 'b', FALSE); ?>
+			<?php echo form_radio('user_answer['.$index.']', '2', FALSE); ?>
 		</div>
 		<div class="col-md-3 well">
 			<p>
 				<?php echo $row->answer_c; ?>
 			</p> 
-			<?php echo form_radio('user_answer['.$index.']', 'c', FALSE); ?>
+			<?php echo form_radio('user_answer['.$index.']', '3', FALSE); ?>
 		</div>
 		<div class="col-md-3 well">
 			<p>
 				<?php echo $row->answer_d; ?>
 			</p> 
-			<?php echo form_radio('user_answer['.$index.']', 'd', FALSE); ?>
+			<?php echo form_radio('user_answer['.$index.']', '4', FALSE); ?>
 		</div>
 
 	</div>
