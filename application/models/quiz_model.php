@@ -38,6 +38,32 @@ class Quiz_model extends CI_Model {
                 return $query;
         }
 
+        function question_count($id)
+        {               
+                $query = $this->db->get_where('question', array('quiz_id' => $id));
+                return $query->num_rows();
+        }
+
+        function retrieve_question($id, $question_index)
+        {               
+                $query = $this->db->get_where('question', array('quiz_id' => $id));
+                return $query->row_array($question_index);
+        }
+
+        function retrieve_question_right_choice($id, $question_index)
+        {               
+                $query = $this->db->get_where('question', array('quiz_id' => $id));
+                $result = $query->row($question_index);
+                return $result->right_choice;
+        }
+
+        function retrieve_question_right_choice_text($id, $question_index, $answer_column)
+        {               
+                $query = $this->db->get_where('question', array('quiz_id' => $id));
+                $result = $query->row($question_index);
+                return $result->$answer_column;
+        }
+
         function retrieve_question_value($id)
         {		
                 $query = $this->db->get_where('question', array('question_id' => $id));
@@ -70,6 +96,12 @@ class Quiz_model extends CI_Model {
                 $this->db->where('question_id', $question_id);
 				$this->db->delete('question');
 				return;
+        }
+
+        function save_answer($data)
+        {
+                $this->db->insert('answer', $data);
+                return;
         }
 
         function save_answers($data)

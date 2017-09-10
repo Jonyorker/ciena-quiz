@@ -1,5 +1,5 @@
 <div class="container">
-<h2>Edit Questions</h2>
+<h2>Select Questions</h2>
 <ul class="list-group">
 
 </ul>
