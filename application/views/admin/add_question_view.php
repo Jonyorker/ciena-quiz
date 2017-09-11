@@ -1,5 +1,5 @@
 <div class="container">
-  <?php echo form_open('/Admin_panel/add_question', 'class="form-horizontal", id="ciena-form"'); ?>
+  <?php echo form_open('/Admin_panel/create_question', 'class="form-horizontal", id="ciena-form"'); ?>
   <?php echo form_hidden('quiz_name', $quiz_name); ?>
   <?php echo form_hidden('quiz_id', $quiz_id); ?>
 <fieldset>
@@ -68,7 +68,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="button1id"></label>
   <div class="col-md-4">
-    <?php echo form_submit('finish', 'Finish Quiz', array('class' => 'btn btn-primary btn-lg')); ?>
+    <?php echo form_submit('finish', 'Finish', array('class' => 'btn btn-primary btn-lg')); ?>
     <?php echo form_submit('more', 'Add Question', array('class' => 'btn btn-success btn-lg')); ?>
   </div>
 </div>

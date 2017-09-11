@@ -9,7 +9,7 @@
 		foreach ($questions->result() as $row) {
 			$question = $row->question_text;
 			$id = $row->question_id;
-			echo anchor('/Admin_panel/edit_question/'.$id, $question, array('title' => $question, 'class' => 'list-group-item')); 
+			echo anchor('/Admin_panel/retrieve_question_value/'.$id, $question, array('title' => $question, 'class' => 'list-group-item')); 
 		}
 	?>
 </div>

@@ -1,5 +1,5 @@
 <div class="container">
-  <?php echo form_open('/Admin_panel/edit_question_save', 'class="form-horizontal", id="ciena-form"'); ?>
+  <?php echo form_open('/Admin_panel/save_question_changes', 'class="form-horizontal", id="ciena-form"'); ?>
   <?php echo form_hidden('question_id', $question['question_id']); ?>
 <fieldset>
 
@@ -68,7 +68,7 @@
   <label class="col-md-4 control-label" for="button1id"></label>
   <div class="col-md-4">
     <?php echo anchor('/Admin_panel/delete_question/'.$question['question_id'], 'Delete Question', array('title' => 'Delete Question', 'class' => 'btn btn-warning btn-lg')); ?>
-    <?php echo form_submit('save', 'Save Changes', array('class' => 'btn btn-success btn-lg')); ?>
+    <?php echo form_submit('', 'Save Changes', array('class' => 'btn btn-success btn-lg')); ?>
   </div>
 </div>
 

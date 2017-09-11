@@ -28,7 +28,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="button1id"></label>
   <div class="col-md-8">
-  	<?php echo form_submit('submit', 'Add Question', array('class' => 'btn btn-success btn-lg btn-block')); ?>
+  	<?php echo form_submit('', 'Add Question', array('class' => 'btn btn-success btn-lg btn-block')); ?>
   </div>
 </div>
 

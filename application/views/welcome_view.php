@@ -23,7 +23,7 @@
     </div>
 	      <div class="col-md-6 well">
 	      <h2>Continue Without logging in</h2>
-	      <?php echo form_open('Quiz/anonymous', 'class="form-new", id="ciena-form"'); ?>
+	      <?php echo form_open('User/anonymous', 'class="form-new", id="ciena-form"'); ?>
 	      <div class="form-group">
 			<?php echo form_hidden('user_id', 'anonymous'); ?>
 			<div class="col-md-12">
