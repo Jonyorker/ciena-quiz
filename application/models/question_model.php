@@ -34,8 +34,8 @@ class Question_model extends CI_Model {
         function save_question_changes($data) // Save values to DB
         {
                 $this->db->where('question_id', $data['question_id']);
-				$this->db->update('question', $data);
-				return;
+		$this->db->update('question', $data);
+		return;
         }
 
         function retrieve_question_right_choice($id, $question_index) // Get which answer is the right one for a specific question
@@ -55,15 +55,15 @@ class Question_model extends CI_Model {
         function delete_question($question_id) // Delete specific question
         {		
                 $this->db->where('question_id', $question_id);
-				$this->db->delete('question');
-				return;
+		$this->db->delete('question');
+		return;
         }
 
         function delete_quiz_questions($quiz_id) // Delete all questions related to specifc quiz
         {		
                 $this->db->where('quiz_id', $quiz_id);
-				$this->db->delete('question');
-				return;
+		$this->db->delete('question');
+		return;
         }
 
 }

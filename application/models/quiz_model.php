@@ -19,33 +19,6 @@ class Quiz_model extends CI_Model {
                 $query = $this->db->get_where('quiz', array('anonymous' => TRUE));
                 return $query;
         }
-        
-        
-
-
-
-
-
-        
-
-        
-        
-
-        
-
-        
-
-        function retrieve_question($id, $question_index)
-        {               
-                $query = $this->db->get_where('question', array('quiz_id' => $id));
-                return $query->row_array($question_index);
-        }
-
-        
-
-        
-
-        
 
         function get_quiz_name($id)
         {		
@@ -54,15 +27,11 @@ class Quiz_model extends CI_Model {
 		return $result->quiz_name;
         }
 
-        
-
-        
-
         function delete_quiz($quiz_id) // Delete quiz
         {               
                 $this->db->where('quiz_id', $quiz_id);
-                                $this->db->delete('quiz');
-                                return;
+                $this->db->delete('quiz');
+                return;
         }
 
 

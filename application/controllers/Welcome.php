@@ -20,6 +20,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data['login_error'] = '';
 		$data['main_content'] = 'welcome_view';
         $this->load->view('template/body_view', $data);
 	}

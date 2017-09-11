@@ -127,7 +127,7 @@ class Quiz extends CI_Controller {
 			$this->session->set_userdata('question_index', $question_index);
 
 			// Get question data for new question
-			$data['question'] = $this->quiz_model->retrieve_question($this->session->userdata('quiz_id'), $this->session->userdata('question_index'));
+			$data['question'] = $this->question_model->retrieve_question_during_quiz($this->session->userdata('quiz_id'), $this->session->userdata('question_index'));
 
 			// Load views
 			$data['main_content'] = 'take_quiz_view';

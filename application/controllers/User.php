@@ -36,4 +36,42 @@ class User extends CI_Controller {
         $this->load->view('template/body_view', $data);
 	}
 
+	public function registered_user()
+	{
+		
+		// Get form values
+		$data['user_name'] = $this->input->post('user_email');
+		$user_password = $this->input->post('user_password');
+
+		// // Load LDAP library and attempt to login
+		$this->load->library('ldap');
+		$login_result = $this->ldap->ldap_login($user_email, $user_password);
+
+		if ($login_result == true) {
+
+			// check if user logged in before
+			$user_id = $this->user_model->check_user_exists($data['user_name']);
+			if ($user_id >= 1) {
+				$this->session->set_userdata('user_id', $user_id);
+			}
+			else {
+			//create a user ID and store in SESSION
+			$this->session->set_userdata('user_id', $this->user_model->create_user($data));
+			}
+
+			// Retrieve list of quizzes
+			$data['quizzes'] = $this->quiz_model->list_quizzes();
+
+			// Load views
+			$data['main_content'] = 'quiz_list_view';
+	        $this->load->view('template/body_view', $data);
+		}
+		else {
+			$data['login_error'] = 'Could not login to LDAP';
+			$data['main_content'] = 'welcome_view';
+	        $this->load->view('template/body_view', $data);
+		}
+		
+	}
+
 }
