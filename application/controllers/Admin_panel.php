@@ -21,13 +21,13 @@ class Admin_panel extends CI_Controller {
 	public function index()
 	{
 		$data['main_content'] = 'admin/admin_home_view';
-        $this->load->view('template/body_view', $data);
+        $this->load->view('template/admin_body_view', $data);
 	}
 
 	public function create_quiz() // Create Quiz
 	{
 		$data['main_content'] = 'admin/create_quiz_view';
-        $this->load->view('template/body_view', $data);
+        $this->load->view('template/admin_body_view', $data);
 	}
 
 	public function store_quiz() // Store Quiz
@@ -43,7 +43,7 @@ class Admin_panel extends CI_Controller {
 
 		// Load views
 		$data['main_content'] = 'admin/add_question_view';
-        $this->load->view('template/body_view', $data);
+        $this->load->view('template/admin_body_view', $data);
 	}
 
 	public function create_question() // Create and store question
@@ -72,7 +72,7 @@ class Admin_panel extends CI_Controller {
 		}
 
 		// Load views
-        $this->load->view('template/body_view', $data);
+        $this->load->view('template/admin_body_view', $data);
 	}
 
 	public function list_quizzes() // Get list of all quizzes in DB
@@ -82,7 +82,7 @@ class Admin_panel extends CI_Controller {
 
 		// Load views
 		$data['main_content'] = 'admin/list_quizzes_view';
-        $this->load->view('template/body_view', $data);
+        $this->load->view('template/admin_body_view', $data);
 	}
 
 	public function list_questions($id, $name) // Get list of questions for specific quiz
@@ -94,7 +94,7 @@ class Admin_panel extends CI_Controller {
 		
 		// Load views
 		$data['main_content'] = 'admin/list_questions_view';
-        $this->load->view('template/body_view', $data);
+        $this->load->view('template/admin_body_view', $data);
 	}
 
 	public function retrieve_question_value($id) // Edit question values
@@ -104,7 +104,7 @@ class Admin_panel extends CI_Controller {
 		
 		// Load views
 		$data['main_content'] = 'admin/edit_question_view';
-        $this->load->view('template/body_view', $data);
+        $this->load->view('template/admin_body_view', $data);
 	}
 
 	public function save_question_changes() // Store changes to question
@@ -120,7 +120,7 @@ class Admin_panel extends CI_Controller {
 		
 		// Load views
 		$data['main_content'] = 'admin/admin_home_view';
-        $this->load->view('template/body_view', $data);
+        $this->load->view('template/admin_body_view', $data);
 	}
 
 	public function add_question($quiz_id) // Add question to quiz from edit screen
@@ -131,7 +131,7 @@ class Admin_panel extends CI_Controller {
 
 		// Load views
 		$data['main_content'] = 'admin/add_question_view';
-        $this->load->view('template/body_view', $data);
+        $this->load->view('template/admin_body_view', $data);
 	}
 
 	public function delete_quiz($quiz_id) // Delete quiz and related questions
@@ -142,7 +142,7 @@ class Admin_panel extends CI_Controller {
 
 		// Load views
 		$data['main_content'] = 'admin/admin_home_view';
-        $this->load->view('template/body_view', $data);
+        $this->load->view('template/admin_body_view', $data);
 	}
 
 	public function delete_question($question_id) // Delete question
@@ -152,6 +152,6 @@ class Admin_panel extends CI_Controller {
 
 		// Load views
 		$data['main_content'] = 'admin/admin_home_view';
-        $this->load->view('template/body_view', $data);
+        $this->load->view('template/admin_body_view', $data);
 	}
 }

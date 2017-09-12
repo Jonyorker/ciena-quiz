@@ -45,7 +45,7 @@ class User extends CI_Controller {
 
 		// // Load LDAP library and attempt to login
 		$this->load->library('ldap');
-		$login_result = $this->ldap->ldap_login($user_email, $user_password);
+		$login_result = $this->ldap->ldap_login($data['user_name'], $user_password);
 
 		if ($login_result == true) {
 

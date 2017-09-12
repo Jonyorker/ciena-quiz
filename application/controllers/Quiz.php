@@ -19,6 +19,18 @@ class Quiz extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
+	public function splash_quiz($quiz_id, $quiz_name) // Splash page for quiz
+	{
+		// Grab values and put in session
+		$this->session->set_userdata('quiz_id', $quiz_id);
+		$this->session->set_userdata('quiz_name', $quiz_name);
+
+		// Load view
+		$data['main_content'] = 'quiz_splash_view';
+        $this->load->view('template/body_view', $data);
+
+
+	}
 	public function take_quiz($quiz_id, $quiz_name) // Start and continue quiz
 	{
 		// Get count of questions in a quiz
