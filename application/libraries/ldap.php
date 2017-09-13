@@ -55,11 +55,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             echo "Invalid username or password";
             
             // added for testing
-            echo 'var username : ' $username;
-            echo 'var password : ' $password;
-            echo 'var bind : ' $bind;
-            echo 'var ldap : ' $ldap;
-            echo 'var get_ldap_rdn : ' $this->get_ldap_rdn($username);
+            echo 'var username : '.$username;
+            echo 'var password : '.$password;
+            echo 'var bind : '.$bind;
+            echo 'var ldap : '.$ldap;
+            echo 'var get_ldap_rdn : '.$this->get_ldap_rdn($username);
 
           }
           
