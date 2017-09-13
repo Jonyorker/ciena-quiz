@@ -63,6 +63,13 @@
   </div>
 </div>
 
+<div class="form-group">
+  <label class="col-md-4 control-label" for="ans_4">Extra Info</label>
+  <div class="col-md-8">                     
+    <?php echo form_textarea('extra_info', $question['extra_info'], array('placeholder' => 'Extra info after user answers', 'class' => 'form-control')); ?> 
+  </div>
+</div>
+
 <!-- Button (Double) -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="button1id"></label>

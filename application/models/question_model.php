@@ -45,12 +45,19 @@ class Question_model extends CI_Model {
                 return $result->right_choice;
         }
 
+        function retrieve_question_extra_info($id, $question_index) // Get the extra info text for a specifc question
+        {               
+                $query = $this->db->get_where('question', array('quiz_id' => $id));
+                $result = $query->row($question_index);
+                return $result->extra_info;
+        }
+
         function retrieve_question_right_choice_text($id, $question_index, $answer_column) // Get the text that belongs to the right choice for a specifc question
         {               
                 $query = $this->db->get_where('question', array('quiz_id' => $id));
                 $result = $query->row($question_index);
                 return $result->$answer_column;
-        }
+        }      
 
         function delete_question($question_id) // Delete specific question
         {		

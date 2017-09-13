@@ -21,7 +21,10 @@ else {
         The proper answer is :
       </h3>
       <p>
-        <?php echo $right_choice_text ?>
+        <?php echo $right_choice_text; ?>
+      </p>
+      <p>
+        <?php echo $extra_info; ?>
       </p> 
       <?php echo anchor('/Quiz/next_question', $button_text, array('title' => 'Return Home', 'class' => 'btn btn-primary btn-lg btn-block')); ?>
     </div>

@@ -27,6 +27,7 @@ class Quiz extends CI_Controller {
 
 		// Load view
 		$data['main_content'] = 'quiz_splash_view';
+		$data['splash'] = true;
         $this->load->view('template/body_view', $data);
 
 
@@ -67,6 +68,7 @@ class Quiz extends CI_Controller {
 	 	// Logic for answer tracking at the end of the quiz
 			 	$data['user_answer'] = $this->answer_model->user_answer($data['question_id']);
 			 	$data['right_choice'] = $this->question_model->retrieve_question_right_choice($data['quiz_id'], $this->session->userdata('question_index'));
+			 	$data['extra_info'] = $this->question_model->retrieve_question_extra_info($data['quiz_id'], $this->session->userdata('question_index'));
 
 			 	// increment $user_score if it was the right answer
 			 	if ($data['user_answer'] == $data['right_choice']) {

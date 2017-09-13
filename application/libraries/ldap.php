@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         public function get_ldap_rdn($username) {
-          if (is_localhost()) {
+          if ($this->is_localhost()) {
             return "uid=$username,dc=example,dc=com";
           }
 
@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         public function get_ldap_server() {
-          if (is_localhost()) {
+          if ($this->is_localhost()) {
             return "ldap.forumsys.com";
           }
           else {
@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         public function get_base_dn() {
-          if (is_localhost()) {
+          if ($this->is_localhost()) {
             return "dc=example,dc=com";
           }
 
@@ -38,11 +38,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         public function ldap_login($username, $password) {  
-          $ldap = ldap_connect(get_ldap_server());
+          $ldap = ldap_connect($this->get_ldap_server());
           ldap_set_option($ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
           ldap_set_option($ldap, LDAP_OPT_REFERRALS, 0);
 
-          if ($username && $password && $bind = ldap_bind($ldap, get_ldap_rdn($username), $password)) {
+          if ($username && $password && $bind = ldap_bind($ldap, $this->get_ldap_rdn($username), $password)) {
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $username . '@ciena.com';
             $_SESSION['password'] = openssl_encrypt($password, 'aes256', getPasswordKey($username));
@@ -53,6 +53,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           }
           else {
             echo "Invalid username or password";
+            
+            // added for testing
+            echo 'var username : ' $username;
+            echo 'var password : ' $password;
+            echo 'var bind : ' $bind;
+            echo 'var ldap : ' $ldap;
+            echo 'var get_ldap_rdn : ' $this->get_ldap_rdn($username);
+
           }
           
           return false;

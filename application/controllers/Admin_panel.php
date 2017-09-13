@@ -56,6 +56,7 @@ class Admin_panel extends CI_Controller {
 		$data['answer_c'] = $this->input->post('answer_c');
 		$data['answer_d'] = $this->input->post('answer_d');
 		$data['right_choice'] = $this->input->post('right_choice');
+		$data['extra_info'] = $this->input->post('extra_info');
 
 		// Save question in DB
 		$this->question_model->create_question($data);
