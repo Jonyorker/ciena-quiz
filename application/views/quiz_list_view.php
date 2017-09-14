@@ -9,7 +9,7 @@
 		foreach ($quizzes->result() as $row) {
 			$name = $row->quiz_name;
 			$id = $row->quiz_id;
-			echo anchor('/Quiz/splash_quiz/'.$id.'/'.$name, $name, array('title' => $name, 'class' => 'list-group-item')); 
+			echo anchor('/Quiz/start/'.$id, $name, array('title' => $name, 'class' => 'list-group-item')); 
 		}
 	?>
 </div>

@@ -13,7 +13,7 @@
   </div> 
   <div class="row" style="padding-top: 5%"> 
   <div class="col-md-12 text-center">
-    <?php echo anchor('/Quiz/take_quiz/'.$this->session->userdata('quiz_id').'/'.$this->session->userdata('quiz_name'), 'Begin Quiz', array('title' => $this->session->userdata('quiz_name'), 'class' => 'btn btn-success btn-lg '));  ?>
+    <?php echo anchor('/Quiz/take_quiz/'.$this->session->userdata('quiz_id'), 'Begin Quiz', array('title' => $this->session->userdata('quiz_name'), 'class' => 'btn btn-success btn-lg '));  ?>
     </div>
   </div> 
 </div> 

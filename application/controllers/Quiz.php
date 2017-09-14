@@ -19,11 +19,11 @@ class Quiz extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-	public function splash_quiz($quiz_id, $quiz_name) // Splash page for quiz
+	public function start($quiz_id) // Splash page for quiz
 	{
 		// Grab values and put in session
 		$this->session->set_userdata('quiz_id', $quiz_id);
-		$this->session->set_userdata('quiz_name', $quiz_name);
+		$this->session->set_userdata('quiz_name', $this->quiz_model->get_quiz_name($quiz_id));
 
 		// Load view
 		$data['main_content'] = 'quiz_splash_view';
@@ -32,21 +32,19 @@ class Quiz extends CI_Controller {
 
 
 	}
-	public function take_quiz($quiz_id, $quiz_name) // Start and continue quiz
+	public function take_quiz($quiz_id) // Start and continue quiz
 	{
 		// Get count of questions in a quiz
 		$data['question_count'] = $this->question_model->question_count($quiz_id);
 
 		// Store session variables
-		$this->session->set_userdata('quiz_id', $quiz_id);
-		$this->session->set_userdata('quiz_name', $quiz_name);
 		$this->session->set_userdata('question_index', 0);
 		$this->session->set_userdata('user_score', 0);
 		$this->session->set_userdata('question_count', $data['question_count']);
 
 		// Add variables to $data
 		$data['quiz_id'] = $quiz_id;
-		$data['quiz_name'] = $quiz_name;
+		$data['quiz_name'] = $this->session->userdata('quiz_name');
 		$data['question'] = $this->question_model->retrieve_question_during_quiz($quiz_id, $this->session->userdata('question_index'));
 
 		// Load views

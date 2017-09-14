@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           if ($username && $password && $bind = ldap_bind($ldap, $this->get_ldap_rdn($username), $password)) {
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $username . '@ciena.com';
-            $_SESSION['password'] = openssl_encrypt($password, 'aes256', getPasswordKey($username));
+            $_SESSION['password'] = openssl_encrypt($password, 'aes256', $this->getPasswordKey($username));
 
             header("Location: http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 
