@@ -1,5 +1,6 @@
 <div class="container">
-<h2>Edit Questions</h2>
+<h2 class="text-center">Edit Questions</h2>
+<hr>
 <ul class="list-group">
 
 </ul>
@@ -14,11 +15,11 @@
 	?>
 </div>
   <!-- Button (Double) -->
-  		<div class="col-md-4">
-			<?php echo anchor('/Admin_panel/delete_quiz/'.$quiz_id, 'Delete Quiz', array('title' => 'Delete Quiz', 'class' => 'btn btn-warning btn-lg btn-block')); ?>
+  		<div class="col-md-6">
+			<?php echo anchor('/Admin_panel/delete_quiz/'.$quiz_id, 'Delete Quiz', array('title' => 'Delete Quiz', 'class' => 'btn btn-ciena-no btn-lg btn-block')); ?>
 		</div>
-		<div class="col-md-4">
-			<?php echo anchor('/Admin_panel/add_question/'.$quiz_id, 'Add Question', array('title' => 'Add Question', 'class' => 'btn btn-primary btn-lg btn-block')); ?>
+		<div class="col-md-6">
+			<?php echo anchor('/Admin_panel/add_question/'.$quiz_id, 'Add Question', array('title' => 'Add Question', 'class' => 'btn btn-ciena-yes btn-lg btn-block')); ?>
 		</div>
    
 

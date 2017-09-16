@@ -1,5 +1,6 @@
 <div class="container">
-<h2>Quiz Results for <?php echo urldecode($this->session->userdata('quiz_name')); ?></h2>
+<h2 class="text-center">Quiz Results for <?php echo urldecode($this->session->userdata('quiz_name')); ?></h2>
+<hr>
 <ul class="list-group">
 </ul>
 
@@ -17,6 +18,6 @@
 	</p>
 	</div>
 </div>
-<?php echo anchor('', 'Return Home', array('title' => 'Return Home', 'class' => 'btn btn-primary btn-lg btn-block')); ?>
+<?php echo anchor('', 'Return Home', array('title' => 'Return Home', 'class' => 'btn btn-ciena-yes btn-lg btn-block')); ?>
 </div>
 

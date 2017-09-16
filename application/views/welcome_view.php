@@ -5,7 +5,7 @@
         <p class="lead">See how smart you are</p>
       </div>
       <div class="row row-eq-height">
-	      <div class="col-md-6 well">
+	      <div class="col-md-6 ">
 	      <h2>Login</h2>
 	      <?php echo form_open('User/registered_user', 'class="form-new", id="ciena-form"'); ?>
 	      <div class="form-group">
@@ -18,20 +18,20 @@
 			<?php echo form_password('user_password','', array('placeholder' => 'Password', 'class' => 'form-control')); ?>
 			</div>
 			<div class="col-md-12">
-			<?php echo form_submit('submit', 'Next', array('class' => 'btn btn-default pull-right')); ?>
-	      </div>
+			<?php echo form_submit('submit', 'Next', array('class' => 'btn btn-ciena-yes pull-right')); ?>
+		</div>
 
 	      <?php echo form_close(); ?>
       </div>
 
     </div>
-	      <div class="col-md-6 well">
+	      <div class="col-md-6 ">
 	      <h2>Continue Without logging in</h2>
 	      <?php echo form_open('User/anonymous', 'class="form-new", id="ciena-form"'); ?>
 	      <div class="form-group">
 			<?php echo form_hidden('user_id', 'anonymous'); ?>
 			<div class="col-md-12">
-			<?php echo form_submit('submit', 'Next', array('class' => 'btn btn-default pull-right')); ?>
+			<?php echo form_submit('submit', 'Next', array('class' => 'btn btn-ciena-yes pull-right')); ?>
 	      </div>
 
 	      <?php echo form_close(); ?>

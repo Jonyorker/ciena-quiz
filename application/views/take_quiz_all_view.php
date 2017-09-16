@@ -51,7 +51,7 @@
 		<?php 
 		$index++;
 		}
-		echo form_submit('', 'Submit answers', array('class' => 'btn btn-success btn-lg'));
+		echo form_submit('', 'Submit answers', array('class' => 'btn btn-ciena-yes btn-lg'));
 		echo form_close();
 	?>
 </div>

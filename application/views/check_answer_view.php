@@ -1,5 +1,6 @@
 <div class="container"> 
-<h2><?php echo urldecode($this->session->userdata('quiz_name')); ?></h2> 
+<h2 class="text-center"><?php echo urldecode($this->session->userdata('quiz_name')); ?></h2>
+<hr>
  
 <div class="container-fluid">
 <?php if ($user_answer == $right_choice) { ?>
@@ -8,7 +9,7 @@
       <h3>
         Correct!
       </h3> 
-      <?php echo anchor('/Quiz/next_question', $button_text, array('title' => 'Return Home', 'class' => 'btn btn-primary btn-lg btn-block')); ?>
+      <?php echo anchor('/Quiz/next_question', $button_text, array('title' => 'Return Home', 'class' => 'btn btn-ciena-yes btn-lg btn-block')); ?>
     </div>
   </div>
   <?php
@@ -23,14 +24,19 @@ else {
       <p>
         <?php echo $right_choice_text; ?>
       </p>
-      <p>
+      <p id="extra_info">
         <?php echo $extra_info; ?>
       </p> 
-      <?php echo anchor('/Quiz/next_question', $button_text, array('title' => 'Return Home', 'class' => 'btn btn-primary btn-lg btn-block')); ?>
+      <?php echo anchor('/Quiz/next_question', $button_text, array('title' => 'Return Home', 'class' => 'btn btn-ciena-yes btn-lg btn-block')); ?>
     </div>
   </div>
 </div>
 <?php 
 };
 ?>
-</div> 
+</div>
+<script>
+$(document).ready(function(){
+        $('#extra_info').css('visibility','visible').hide().fadeIn('slow');
+    });
+</script> 

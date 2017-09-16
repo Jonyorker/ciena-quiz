@@ -1,5 +1,6 @@
 <div class="container">
-<h2>Select Quiz</h2>
+<h2 class="text-center">Select Quiz</h2>
+<hr>
 <ul class="list-group">
 
 </ul>
