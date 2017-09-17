@@ -99,19 +99,48 @@ function showLoginPasswordProtect($error_msg) {
   <title>Please enter password to access this page</title>
   <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
   <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="<?php echo base_url(); ?>/public/css/style.css" rel="stylesheet">
 </head>
 <body>
-  <style>
-    input { border: 1px solid black; }
-  </style>
-  <div style="width:500px; margin-left:auto; margin-right:auto; text-align:center">
+
+  <div class="container">
+    
+      <div class="col-md-12">
   <form method="post">
-    <h3>Please enter password to access this page</h3>
-    <font color="red"><?php echo $error_msg; ?></font><br />
-<?php if (USE_USERNAME) echo 'Login:<br /><input type="input" name="access_login" /><br />Password:<br />'; ?>
-    <input type="password" name="access_password" /><p></p><input type="submit" name="Submit" value="Submit" />
-  </form>
+    <div class="row">
+    <h3 class="text-center">Please enter password to access this page</h3>
+    <hr>
   </div>
+    <font color="red"><?php echo $error_msg; ?></font><br />
+    <div class="form-group">
+      <?php if (USE_USERNAME) { ?>
+      <div class="row">
+        <label class="col-md-4 text-right">Login:</label>
+          <div class="col-md-4">
+          <input type="input" name="access_login" class="form-control"/>
+          </div>
+        </div>
+
+      <?php } ?>
+      <div class="row">
+        <label class="col-md-4 text-right">Password:</label>
+      <div class="col-md-4">
+    <input type="password" name="access_password" class="form-control" />
+    </div>
+  </div>
+  <div class="row">
+<div class="col-md-4 col-md-push-7">
+    <input type="submit" name="Submit" value="Submit" class="btn btn-ciena-yes" />
+  </div>
+    </div>
+    </form>
+  </div>
+
+
+
 </body>
 </html>
 
