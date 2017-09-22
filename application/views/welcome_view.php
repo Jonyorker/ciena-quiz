@@ -9,9 +9,9 @@
 	      <h2>Login</h2>
 	      <?php echo form_open('User/registered_user', 'class="form-new", id="ciena-form"'); ?>
 	      <div class="form-group">
-			<?php echo form_label('User Email', 'user_name', array('class' => 'col-md-3')); ?>
+			<?php echo form_label('Login ID', 'user_name', array('class' => 'col-md-3')); ?>
 			<div class="col-md-9">
-			<?php echo form_input('user_email','', array('placeholder' => 'User Email', 'class' => 'form-control')); ?>
+			<?php echo form_input('user_email','', array('placeholder' => 'Login ID', 'class' => 'form-control')); ?>
 			</div>
 			<?php echo form_label('Password', 'password', array('class' => 'col-md-3')); ?>
 			<div class="col-md-9">
