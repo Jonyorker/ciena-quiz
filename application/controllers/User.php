@@ -32,8 +32,15 @@ class User extends CI_Controller {
 		$data['quizzes'] = $this->quiz_model->list_quizzes_anon();
 
 		// Load views
-		$data['main_content'] = 'quiz_list_view';
-        $this->load->view('template/body_view', $data);
+		if (!is_null($this->session->userdata('referred_from')))
+		{
+		    redirect($this->session->userdata('referred_from'));
+		}
+		else {
+			$data['main_content'] = 'quiz_list_view';
+        	$this->load->view('template/body_view', $data);
+		}
+		
 	}
 
 	public function registered_user()
@@ -63,13 +70,29 @@ class User extends CI_Controller {
 			$data['quizzes'] = $this->quiz_model->list_quizzes();
 
 			// Load views
-			$data['main_content'] = 'quiz_list_view';
+			if (!is_null($this->session->userdata('referred_from')))
+			{
+			    redirect($this->session->userdata('referred_from'));
+			}
+			else {
+				$data['main_content'] = 'quiz_list_view';
 	        $this->load->view('template/body_view', $data);
+			}
+			// Load views
+			
 		}
 		else {
-			$data['login_error'] = 'Could not login to LDAP';
-			$data['main_content'] = 'welcome_view';
-	        $this->load->view('template/body_view', $data);
+
+			if (!is_null($this->session->userdata('referred_from')))
+			{
+			    redirect($this->session->userdata('referred_from'));
+			}
+			else {
+				$data['login_error'] = 'Could not login to LDAP';
+				$data['main_content'] = 'welcome_view';
+		        $this->load->view('template/body_view', $data);
+			}
+			
 		}
 		
 	}
