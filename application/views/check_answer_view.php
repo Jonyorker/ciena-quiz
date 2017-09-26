@@ -8,7 +8,10 @@
     <div class="col-md-12">
       <h3>
         Correct!
-      </h3> 
+      </h3>
+      <p class="lead" id="extra_info">
+        <?php echo $extra_info; ?>
+      </p>  
       <?php echo anchor('/Quiz/next_question', $button_text, array('title' => 'Return Home', 'class' => 'btn btn-ciena-yes btn-lg btn-block')); ?>
     </div>
   </div>
@@ -19,12 +22,9 @@ else {
   <div class="row">
     <div class="col-md-12">
       <h3>
-        The proper answer is :
+        The proper answer is : <?php echo $right_choice_text; ?>
       </h3>
-      <p>
-        <?php echo $right_choice_text; ?>
-      </p>
-      <p id="extra_info">
+      <p class="lead" id="extra_info">
         <?php echo $extra_info; ?>
       </p> 
       <?php echo anchor('/Quiz/next_question', $button_text, array('title' => 'Return Home', 'class' => 'btn btn-ciena-yes btn-lg btn-block')); ?>

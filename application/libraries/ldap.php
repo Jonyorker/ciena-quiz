@@ -38,11 +38,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         public function ldap_login($username, $password) {  
-          $ldap = ldap_connect($this->get_ldap_server());
+          $ldap = ldap_connect('vawdc01.ciena.com');
           ldap_set_option($ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
           ldap_set_option($ldap, LDAP_OPT_REFERRALS, 0);
 
-          if ($username && $password && $bind = ldap_bind($ldap, $this->get_ldap_rdn($username), $password)) {
+          if ($username && $password = ldap_bind($ldap, $this->get_ldap_rdn($username), $password)) {
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $username . '@ciena.com';
             $_SESSION['password'] = openssl_encrypt($password, 'aes256', $this->getPasswordKey($username));

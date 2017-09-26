@@ -21,6 +21,11 @@ class Quiz extends CI_Controller {
 
 	public function start($quiz_id) // Splash page for quiz
 	{
+		if (is_null($this->session->userdata('user_id'))) {
+			$data['user_name'] = 'anonymous';
+			$this->session->set_userdata('user_id', $this->user_model->create_user($data));
+		}
+
 		// Grab values and put in session
 		$this->session->set_userdata('quiz_id', $quiz_id);
 		$this->session->set_userdata('quiz_name', $this->quiz_model->get_quiz_name($quiz_id));

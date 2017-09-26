@@ -41,7 +41,7 @@ class User extends CI_Controller {
 		
 		// Get form values
 		$data['user_name'] = $this->input->post('user_email');
-		$username = 'ciena' . "\\" . $data['user_name'];
+		$username = $data['user_name'];
 		$user_password = $this->input->post('user_password');
 
 		// // Load LDAP library and attempt to login
