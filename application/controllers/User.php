@@ -40,14 +40,13 @@ class User extends CI_Controller {
 	{
 		
 		// Get form values
-		$data['user_name'] = $this->input->post('user_email');
-		$username = $data['user_name'];
-		$user_password = $this->input->post('user_password');
+		$username = $this->input->post('user_email');
+		$password = $this->input->post('user_password');
 
-		// // Load LDAP library and attempt to login
-		$this->load->library('ldap');
-		$login_result = $this->ldap->ldap_login($username, $user_password);
-
+		// LDAP Connection
+		$login_result = $this->ldap_verify($username, $password);
+		
+		// Logic based on LDAP Connection Result
 		if ($login_result == true) {
 
 			// check if user logged in before
@@ -73,6 +72,24 @@ class User extends CI_Controller {
 	        $this->load->view('template/body_view', $data);
 		}
 		
+	}
+
+	public function ldap_verify($username, $password)
+	{
+		if (isset($username) && isset($password)) {
+			$ldaprdn = 'ciena' . "\\" . $username;
+        	$adServer = "vawdc01.ciena.com";
+        	$ldap = ldap_connect($adServer);
+        	ldap_set_option($ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
+        	ldap_set_option($ldap, LDAP_OPT_REFERRALS, 0);
+
+        	$bind = @ldap_bind($ldap, $ldaprdn, $password);
+
+        	return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 }
