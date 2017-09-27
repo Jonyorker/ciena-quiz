@@ -47,7 +47,7 @@ class User extends CI_Controller {
 	{
 		
 		// Get form values
-		$username = $this->input->post('user_email');
+		$username = $data['user_name'] = $this->input->post('user_email');
 		$password = $this->input->post('user_password');
 
 		// LDAP Connection
