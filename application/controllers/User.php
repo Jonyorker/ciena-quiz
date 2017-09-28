@@ -54,7 +54,8 @@ class User extends CI_Controller {
 		$login_result = $this->ldap_verify($username, $password);
 		
 		// Logic based on LDAP Connection Result
-		if ($login_result == true) {
+		if ($login_result != false) {
+			$data['user_name'] = $login_result;
 
 			// check if user logged in before
 			$user_id = $this->user_model->check_user_exists($data['user_name']);
@@ -88,7 +89,7 @@ class User extends CI_Controller {
 			    redirect($this->session->userdata('referred_from'));
 			}
 			else {
-				$data['login_error'] = 'Could not login to LDAP';
+				$data['login_error'] = 'Invalid username/password – please try again';
 				$data['main_content'] = 'welcome_view';
 		        $this->load->view('template/body_view', $data);
 			}
@@ -108,7 +109,13 @@ class User extends CI_Controller {
 
         	$bind = @ldap_bind($ldap, $ldaprdn, $password);
 
-        	return true;
+        	if ($bind == true) {
+        		$result = ldap_search($ldap, "dc=CIENA,dc=COM","(cn=$username)");
+        		$info = ldap_get_entries($ldap, $result);
+              	ldap_close($ldap);
+
+              	return $result;
+        	}
 		}
 		else {
 			return false;
