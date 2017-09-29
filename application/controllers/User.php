@@ -47,15 +47,24 @@ class User extends CI_Controller {
 	{
 		
 		// Get form values
-		$username = $data['user_name'] = $this->input->post('user_email');
+		$username = $this->input->post('user_email');
 		$password = $this->input->post('user_password');
 
 		// LDAP Connection
 		$login_result = $this->ldap_verify($username, $password);
 		
 		// Logic based on LDAP Connection Result
-		if ($login_result != false) {
-			$data['user_name'] = $login_result;
+		if ($login_result == true) {
+			
+			// Determine if it was an email or a windows ID used to login
+			$check_if_email = strpos($username, "@");
+
+			if ($check_if_email == false){
+				$data['user_name'] = $this->ldap_get_email($username, $password);
+			}
+			else {
+				 $data['user_name'] = $username;
+			}
 
 			// check if user logged in before
 			$user_id = $this->user_model->check_user_exists($data['user_name']);
@@ -110,16 +119,37 @@ class User extends CI_Controller {
         	$bind = @ldap_bind($ldap, $ldaprdn, $password);
 
         	if ($bind == true) {
-        		$result = ldap_search($ldap, "dc=CIENA,dc=COM","(cn=$username)");
-        		$info = ldap_get_entries($ldap, $result);
-              	ldap_close($ldap);
-
-              	return $result;
+        		return true;
         	}
-		}
-		else {
-			return false;
+        	else {
+				return false;
+			}
+		
 		}
 	}
 
+	public function ldap_get_email($username, $password)
+	{
+		if (isset($username) && isset($password)) {
+			$ldaprdn = 'ciena' . "\\" . $username;
+        	$adServer = "vawdc01.ciena.com";
+        	$ldap = ldap_connect($adServer);
+        	ldap_set_option($ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
+        	ldap_set_option($ldap, LDAP_OPT_REFERRALS, 0);
+
+        	$bind = @ldap_bind($ldap, $ldaprdn, $password);
+
+        	if ($bind == true) {
+        		$result = ldap_search($ldap, "dc=CIENA,dc=COM","(sAMAccountName=$username)");
+        		$info = ldap_get_entries($ldap, $result);
+              	ldap_close($ldap);
+
+              	return $info[0]['mail'][0];
+        	}
+        	else {
+				return false;
+			}
+		
+		}
+	}
 }
