@@ -25,9 +25,4 @@ class Welcome extends CI_Controller {
         $this->load->view('template/body_view', $data);
 	}
 
-	public function ldap()
-	{
-		$this->load->view('ldap-test');
-	}
-
 }

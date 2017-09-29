@@ -123,4 +123,11 @@ class User extends CI_Controller {
 		
 		}
 	}
+
+	public function destroy_session(){
+		$this->session->sess_destroy();
+		
+		// Redirect to home
+		redirect(base_url());
+	}
 }

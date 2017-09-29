@@ -1,4 +1,7 @@
     <div class="container">
+    <div class="col-md-2 pull-right">
+    <?php echo anchor('/User/destroy_session/', 'Log Out', array('title' => 'Log out', 'class' => 'btn btn-ciena-yes btn-lg '));  ?>
+    </div>
 
       <div class="starter-template">
         <h1>Ciena Quiz</h1>
