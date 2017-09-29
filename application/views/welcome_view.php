@@ -33,7 +33,7 @@
 	      <?php echo form_open('User/anonymous', 'class="form-new", id="ciena-form"'); ?>
 	      <div class="form-group">
 			<?php echo form_hidden('user_id', 'anonymous'); ?>
-			<div class="col-md-12">
+			<div class="col-md-4 col-md-push-4">
 			<?php echo form_submit('submit', 'Next', array('class' => 'btn btn-ciena-yes pull-right')); ?>
 	      </div>
 

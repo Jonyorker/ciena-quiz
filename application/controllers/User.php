@@ -81,7 +81,7 @@ class User extends CI_Controller {
 			// Load views
 			if (!is_null($this->session->userdata('referred_from')))
 			{
-			    redirect(base_url().$this->session->userdata('referred_from'));
+			    redirect(''.$this->session->userdata('referred_from'));
 			}
 			else {
 				$data['main_content'] = 'quiz_list_view';
@@ -128,6 +128,6 @@ class User extends CI_Controller {
 		$this->session->sess_destroy();
 		
 		// Redirect to home
-		redirect(base_url());
+		redirect('');
 	}
 }
