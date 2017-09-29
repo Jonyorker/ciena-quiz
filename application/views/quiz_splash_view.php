@@ -3,7 +3,7 @@
 <div class="container-fluid"> 
     <div class="row"> 
     <div class="col-md-12"> 
-      <h4 class="text-center"> 
+      <h4 class="starter-template"> 
         Ciena Networks Presents 
       </h4> 
       <p class="text-center h1"> 

@@ -1,5 +1,5 @@
 body {
-  padding-top: 50px;
+  padding-top: 60px;
   background-image: url("../img/blue_bg.png");
   background-repeat: no-repeat;
   background-position: auto;
@@ -7,7 +7,7 @@ body {
   color: #fff;
 }
 .starter-template {
-  padding: 40px 15px;
+  padding: 50px 15px;
   text-align: center;
 }
 

@@ -1,5 +1,5 @@
 <div class="container">
-<h2 class="text-center">Quiz Results for <?php echo urldecode($this->session->userdata('quiz_name')); ?></h2>
+<h2 class="starter-template">Quiz Results for <?php echo urldecode($this->session->userdata('quiz_name')); ?></h2>
 <hr>
 <ul class="list-group">
 </ul>

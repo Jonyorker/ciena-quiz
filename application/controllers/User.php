@@ -47,24 +47,23 @@ class User extends CI_Controller {
 	{
 		
 		// Get form values
-		$username = $this->input->post('user_email');
+		$username = $data['user_name'] = $this->input->post('user_email');
 		$password = $this->input->post('user_password');
 
 		// LDAP Connection
 		$login_result = $this->ldap_verify($username, $password);
 		
+		// Check LDAP Results
+		if ($login_result != false) {
+			$data['user_name'] = $login_result;
+			$login_success = true;
+		}
+		else {
+			$login_success = false;
+		}
+		
 		// Logic based on LDAP Connection Result
-		if ($login_result == true) {
-			
-			// Determine if it was an email or a windows ID used to login
-			$check_if_email = strpos($username, "@");
-
-			if ($check_if_email == false){
-				$data['user_name'] = $this->ldap_get_email($username, $password);
-			}
-			else {
-				 $data['user_name'] = $username;
-			}
+		if ($login_success == true) {
 
 			// check if user logged in before
 			$user_id = $this->user_model->check_user_exists($data['user_name']);
@@ -82,7 +81,7 @@ class User extends CI_Controller {
 			// Load views
 			if (!is_null($this->session->userdata('referred_from')))
 			{
-			    redirect($this->session->userdata('referred_from'));
+			    redirect(base_url().$this->session->userdata('referred_from'));
 			}
 			else {
 				$data['main_content'] = 'quiz_list_view';
@@ -93,42 +92,14 @@ class User extends CI_Controller {
 		}
 		else {
 
-			if (!is_null($this->session->userdata('referred_from')))
-			{
-			    redirect($this->session->userdata('referred_from'));
-			}
-			else {
-				$data['login_error'] = 'Invalid username/password – please try again';
-				$data['main_content'] = 'welcome_view';
-		        $this->load->view('template/body_view', $data);
-			}
-			
+			$data['login_error'] = 'Invalid username/password – please try again';
+			$data['main_content'] = 'welcome_view';
+	        $this->load->view('template/body_view', $data);			
 		}
 		
 	}
 
 	public function ldap_verify($username, $password)
-	{
-		if (isset($username) && isset($password)) {
-			$ldaprdn = 'ciena' . "\\" . $username;
-        	$adServer = "vawdc01.ciena.com";
-        	$ldap = ldap_connect($adServer);
-        	ldap_set_option($ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
-        	ldap_set_option($ldap, LDAP_OPT_REFERRALS, 0);
-
-        	$bind = @ldap_bind($ldap, $ldaprdn, $password);
-
-        	if ($bind == true) {
-        		return true;
-        	}
-        	else {
-				return false;
-			}
-		
-		}
-	}
-
-	public function ldap_get_email($username, $password)
 	{
 		if (isset($username) && isset($password)) {
 			$ldaprdn = 'ciena' . "\\" . $username;
