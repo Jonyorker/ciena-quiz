@@ -1,4 +1,3 @@
-    <div class="container">
     <?php echo form_open('/Admin_panel/store_quiz', 'class="form-horizontal", id="ciena-form"'); ?>
 
 
@@ -25,6 +24,13 @@
   </div>
   </div>
   </div>
+  <div class="form-group">
+
+  <label class="col-md-4 control-label" for="background_img">Background file name</label>  
+  <div class="col-md-8">
+  <?php echo form_input('background_img','', array('placeholder' => 'example.png', 'class' => 'form-control input-md')); ?>
+  </div>
+</div>
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="button1id"></label>

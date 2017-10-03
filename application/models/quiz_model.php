@@ -20,11 +20,18 @@ class Quiz_model extends CI_Model {
                 return $query;
         }
 
-        function get_quiz_name($id)
+        function get_quiz_name($id) // Get the name of the quiz
         {		
                 $query = $this->db->get_where('quiz', array('quiz_id' => $id));
                 $result = $query->row();
 		return $result->quiz_name;
+        }
+
+        function get_quiz_background($id) // Get the background for that quiz
+        {
+                $query = $this->db->get_where('quiz', array('quiz_id' => $id));
+                $result = $query->row();
+                return $result->background_img;
         }
 
         function delete_quiz($quiz_id) // Delete quiz

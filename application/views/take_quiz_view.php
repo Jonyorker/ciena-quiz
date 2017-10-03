@@ -1,4 +1,3 @@
-<div class="container"> 
 <h2 class="starter-template"><?php echo urldecode($this->session->userdata('quiz_name')); ?></h2>
 <hr>
  
@@ -12,7 +11,7 @@
       <h3> 
         Question 
       </h3> 
-      <p> 
+      <p class="h3"> 
         <?php echo $question['question_text']; ?> 
       </p> 
     </div> 
@@ -20,28 +19,28 @@
   <div class="row"> 
     <hr>
     <div class="col-md-3 "> 
-      <p> 
+      <p class="h3"> 
         <?php echo $question['answer_a'] ?> 
       </p> 
-      <?php echo form_button(array('name' => 'user_answer', 'id' => 'answer_a', 'value' => '1', 'type' => 'submit', 'content' => 'Select this answer', 'class' => 'btn btn-ciena-yes btn-lg btn-block')); ?> 
+      <?php echo form_button(array('name' => 'user_answer', 'id' => 'answer_a', 'value' => '1', 'type' => 'submit', 'content' => '1', 'class' => 'btn btn-ciena-yes btn-sm')); ?> 
     </div> 
     <div class="col-md-3 "> 
-      <p> 
+      <p class="h3"> 
         <?php echo $question['answer_b']; ?> 
       </p>  
-      <?php echo form_button(array('name' => 'user_answer', 'id' => 'answer_b', 'value' => '2', 'type' => 'submit', 'content' => 'Select this answer', 'class' => 'btn btn-ciena-yes btn-lg btn-block')); ?> 
+      <?php echo form_button(array('name' => 'user_answer', 'id' => 'answer_b', 'value' => '2', 'type' => 'submit', 'content' => '2', 'class' => 'btn btn-ciena-yes btn-sm')); ?> 
     </div> 
     <div class="col-md-3 "> 
-      <p> 
+      <p class="h3"> 
         <?php echo $question['answer_c']; ?> 
       </p>  
-      <?php echo form_button(array('name' => 'user_answer', 'id' => 'answer_c', 'value' => '3', 'type' => 'submit', 'content' => 'Select this answer', 'class' => 'btn btn-ciena-yes btn-lg btn-block')); ?> 
+      <?php echo form_button(array('name' => 'user_answer', 'id' => 'answer_c', 'value' => '3', 'type' => 'submit', 'content' => '3', 'class' => 'btn btn-ciena-yes btn-sm')); ?> 
     </div> 
     <div class="col-md-3 "> 
-      <p> 
+      <p class="h3"> 
         <?php echo $question['answer_d']; ?> 
       </p>  
-      <?php echo form_button(array('name' => 'user_answer', 'id' => 'answer_d', 'value' => '4', 'type' => 'submit', 'content' => 'Select this answer', 'class' => 'btn btn-ciena-yes btn-lg btn-block')); ?>  
+      <?php echo form_button(array('name' => 'user_answer', 'id' => 'answer_d', 'value' => '4', 'type' => 'submit', 'content' => '4', 'class' => 'btn btn-ciena-yes btn-sm')); ?>  
     </div> 
   </div> 
 </div> 

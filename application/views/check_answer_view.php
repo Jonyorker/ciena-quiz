@@ -1,4 +1,3 @@
-<div class="container"> 
 <h2 class="starter-template"><?php echo urldecode($this->session->userdata('quiz_name')); ?></h2>
 <hr>
  

@@ -1,4 +1,3 @@
-<div class="container">
 <h2><?php echo urldecode($quiz_name); ?></h2>
 <ul class="list-group">
 </ul>

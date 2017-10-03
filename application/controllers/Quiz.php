@@ -31,10 +31,10 @@ class Quiz extends CI_Controller {
 		// Grab values and put in session
 		$this->session->set_userdata('quiz_id', $quiz_id);
 		$this->session->set_userdata('quiz_name', $this->quiz_model->get_quiz_name($quiz_id));
+		$this->session->set_userdata('quiz_bg_img', $this->quiz_model->get_quiz_background($quiz_id));
 
 		// Load view
 		$data['main_content'] = 'quiz_splash_view';
-		$data['splash'] = true;
         $this->load->view('template/body_view', $data);
 
 

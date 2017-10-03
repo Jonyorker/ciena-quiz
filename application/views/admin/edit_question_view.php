@@ -1,4 +1,3 @@
-<div class="container">
   <?php echo form_open('/Admin_panel/save_question_changes', 'class="form-horizontal", id="ciena-form"'); ?>
   <?php echo form_hidden('question_id', $question['question_id']); ?>
 <fieldset>

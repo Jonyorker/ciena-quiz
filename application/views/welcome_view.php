@@ -1,4 +1,3 @@
-    <div class="container">
     <div class="col-md-2 pull-right">
     <?php echo anchor('/User/destroy_session/', 'Log Out', array('title' => 'Log out', 'class' => 'btn btn-ciena-yes btn-lg '));  ?>
     </div>
@@ -12,9 +11,9 @@
 	      <h2>Login</h2>
 	      <?php echo form_open('User/registered_user', 'class="form-new", id="ciena-form"'); ?>
 	      <div class="form-group">
-			<?php echo form_label('Login ID', 'user_name', array('class' => 'col-md-3')); ?>
+			<?php echo form_label('Windows ID', 'user_name', array('class' => 'col-md-3')); ?>
 			<div class="col-md-9">
-			<?php echo form_input('user_email','', array('placeholder' => 'Login ID', 'class' => 'form-control')); ?>
+			<?php echo form_input('user_email','', array('placeholder' => 'Windows ID', 'class' => 'form-control')); ?>
 			</div>
 			<?php echo form_label('Password', 'password', array('class' => 'col-md-3')); ?>
 			<div class="col-md-9">

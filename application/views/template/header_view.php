@@ -13,7 +13,32 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link href="<?php echo base_url(); ?>/public/css/style.css" rel="stylesheet">
 	<script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
+
+	<!-- determine if custom background exists -->
+	<?php
+
+	if (!is_null($this->session->userdata('quiz_bg_img'))) { ?>
+		<style type="text/css">
+		body {
+			background-image: url("<?php echo base_url()."/public/img/".$this->session->userdata('quiz_bg_img'); ?>");
+			background-size: auto;
+		}
+		</style>
+	<?php
+	}
+
+	?>
 	
 	
 </head>
 <body>
+	<div class="container-fluid"> 
+<?php
+
+	if (!is_null($this->session->userdata('quiz_bg_img'))) { ?>
+		<img src="<?php echo base_url()."/public/img/logo.png"; ?>" class="img-responsive" id="logo">
+	<?php
+	}
+
+	?>
+
