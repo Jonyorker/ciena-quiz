@@ -18,6 +18,6 @@
 	</p>
 	</div>
 </div>
-<?php echo anchor('', 'Return Home', array('title' => 'Return Home', 'class' => 'btn btn-ciena-yes btn-lg btn-block')); ?>
+<?php echo anchor('/User/destroy_session/', 'Return Home', array('title' => 'Return Home', 'class' => 'btn btn-ciena-yes btn-lg btn-block')); ?>
 </div>
 
