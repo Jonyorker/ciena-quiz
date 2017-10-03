@@ -1,3 +1,4 @@
+<div class="container">	
 <h2 class="text-center">Edit Questions</h2>
 <hr>
 <ul class="list-group">

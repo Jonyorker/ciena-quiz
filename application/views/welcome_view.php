@@ -1,3 +1,4 @@
+<div class="container">	
     <div class="col-md-2 pull-right">
     <?php echo anchor('/User/destroy_session/', 'Log Out', array('title' => 'Log out', 'class' => 'btn btn-ciena-yes btn-lg '));  ?>
     </div>

@@ -1,3 +1,4 @@
+<div class="container"> 
   <?php echo form_open('/Admin_panel/create_question', 'class="form-horizontal", id="ciena-form"'); ?>
   <?php echo form_hidden('quiz_name', $quiz_name); ?>
   <?php echo form_hidden('quiz_id', $quiz_id); ?>

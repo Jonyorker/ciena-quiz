@@ -1,3 +1,4 @@
+<div class="container"> 
     <?php echo form_open('/Admin_panel/store_quiz', 'class="form-horizontal", id="ciena-form"'); ?>
 
 
