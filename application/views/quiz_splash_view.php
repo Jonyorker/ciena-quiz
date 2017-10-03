@@ -1,3 +1,13 @@
+<?php
+  if (!is_null($this->session->userdata('quiz_bg_img'))) { ?>
+    <style type="text/css">
+    body {
+      background-image: url("<?php echo base_url()."/public/img/".$this->session->userdata('quiz_bg_img'); ?>");
+      background-size: cover;
+    }
+    </style>
+    <img src="<?php echo base_url()."/public/img/logo.png"; ?>" class="img-responsive" id="logo">
+<?php } ?>
  <div class="container">  
 <div class="container-fluid"> 
     <div class="row"> 
